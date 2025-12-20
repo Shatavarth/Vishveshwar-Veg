@@ -3,180 +3,539 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vishveshwar Pure Veg & Residency</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>VISHVESHWAR - Pure Veg & Residency, Shegaon MH</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-green': '#1E392A',
+                        'accent-gold': '#C7A762',
+                        'soft-gold': '#D9C496',
+                        'dark-bg': '#0F1612',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        script: ['Great Vibes', 'cursive'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-gradient {
+            background: linear-gradient(to bottom, rgba(15, 22, 18, 0.4), rgba(15, 22, 18, 0.9));
+        }
+        
+        .glass-nav {
+            backdrop-filter: blur(10px);
+            background-color: rgba(30, 57, 42, 0.95);
+        }
+
+        .gold-border-draw {
+            position: relative;
+        }
+        .gold-border-draw::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #C7A762;
+            transition: width 0.3s ease;
+        }
+        .gold-border-draw:hover::after {
+            width: 100%;
+        }
+
+        /* Subtle Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        /* Chat Animations */
+        @keyframes slideInUp {
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .animate-slide-up {
+            animation: slideInUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+    </style>
 </head>
-<body>
+<body class="bg-dark-bg text-gray-100 font-sans selection:bg-accent-gold selection:text-primary-green">
 
-    <header id="home" class="hero-section">
-        <div class="hero-overlay"></div>
-        <div class="container">
-            <nav class="navbar">
-                <a href="#home" class="nav-logo">
-                    <img src="" alt="Vishveshwar Logo">
-                </a>
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#restaurant">Restaurant</a></li>
-                    <li><a href="#residency">Residency</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-                <div class="nav-toggle" id="navToggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+    <!-- Header & Navigation -->
+    <header class="glass-nav sticky top-0 z-50 border-b border-accent-gold/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex items-center group cursor-pointer">
+                    <img class="h-12 w-auto mr-4 transition-transform group-hover:scale-105" src="uploaded:Logo.png-a7859cd1-51fb-46e7-970e-78310e83393a" alt="Vishveshvar Logo">
+                    <div class="leading-none">
+                        <span class="text-2xl font-serif font-bold tracking-tight text-white block uppercase">Vishveshwar</span>
+                        <span class="text-[10px] uppercase tracking-[0.3em] text-accent-gold">Pure Veg & Residency</span>
+                    </div>
                 </div>
-            </nav>
 
-            <div class="hero-content">
-                <img src="https://totalfood.com/kiss-the-sky-rooftop-bars-are-thriving/" alt="Vishveshwar Logo" class="hero-logo-large">
-                <h1 class="animate-fade-in">VISHVESHWAR</h1>
-                <p class="sub-heading animate-fade-in-delay">PURE VEG & RESIDENCY</p>
-                <p class="tagline animate-fade-in-delay">Warm Hospitality & Pure Flavors</p>
-                <div class="hero-buttons animate-fade-in-delay">
-                    <a href="#restaurant" class="btn btn-primary">Dine With Us</a>
-                    <a href="#residency" class="btn btn-secondary">Book Your Stay</a>
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex items-center space-x-10">
+                    <a href="#home" class="gold-border-draw text-sm font-medium tracking-wide uppercase text-white/90">Home</a>
+                    <a href="#restaurant" class="gold-border-draw text-sm font-medium tracking-wide uppercase text-white/90">Dining</a>
+                    <a href="#residency" class="gold-border-draw text-sm font-medium tracking-wide uppercase text-white/90">Stay</a>
+                    <a href="#rooftop" class="gold-border-draw text-sm font-medium tracking-wide uppercase text-white/90">Rooftop</a>
+                </nav>
+
+                <!-- Booking Button -->
+                <div class="hidden md:block">
+                    <button class="bg-accent-gold hover:bg-soft-gold text-primary-green px-8 py-2.5 rounded-sm font-bold tracking-tighter transition-all duration-300 transform active:scale-95 shadow-lg shadow-accent-gold/20">
+                        RESERVE NOW
+                    </button>
                 </div>
+
+                <!-- Mobile Menu Icon -->
+                <button id="mobile-menu-btn" class="md:hidden text-accent-gold p-2">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
             </div>
+        </div>
+        
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="hidden absolute top-20 left-0 w-full bg-primary-green border-b border-accent-gold/30 py-8 px-6 space-y-6 text-center animate-fade-in">
+            <a href="#home" class="block text-xl font-serif text-white">Home</a>
+            <a href="#restaurant" class="block text-xl font-serif text-white">Dining</a>
+            <a href="#residency" class="block text-xl font-serif text-white">Stay</a>
+            <a href="#rooftop" class="block text-xl font-serif text-white text-accent-gold">Rooftop Experience</a>
+            <button class="w-full bg-accent-gold text-primary-green py-3 font-bold rounded-sm">BOOK A ROOM</button>
         </div>
     </header>
 
-    <section id="about" class="about-section section-padding">
-        <div class="container">
-            <h2 class="section-title">About Vishveshwar</h2>
-            <div class="about-grid">
-                <div class="about-text">
-                    <p>Welcome to Vishveshwar Pure Veg & Residency, your perfect retreat nestled in the heart of Shegaon, Maharashtra. As a cherished family-run establishment, we offer a serene haven for pilgrims, travelers, and food enthusiasts visiting this spiritual town.</p>
-                    <p>We are ideally situated to provide convenient access to the revered Shri Gajanan Maharaj Sansthan Temple, offering a peaceful base for your pilgrimage. Beyond the spiritual, adventure and leisure await at nearby attractions such as the thrilling Mauli Water Park, the unique experience of Mauli Sky Dining, and the serene beauty of Anand Sagar Park.</p>
+    <!-- Hero Section -->
+    <section id="home" class="relative h-[90vh] overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover scale-105" alt="Luxury Hotel Interior">
+            <div class="absolute inset-0 hero-gradient"></div>
+        </div>
+        
+        <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-4 max-w-5xl mx-auto">
+            <p class="font-script text-4xl md:text-5xl text-accent-gold mb-4 opacity-0 animate-fade-in" style="animation-delay: 0.2s;">Warm Hospitality in the Divine Heart of Shegaon</p>
+            <h1 class="text-5xl md:text-8xl font-serif font-bold text-white mb-8 leading-tight tracking-tight opacity-0 animate-fade-in" style="animation-delay: 0.4s;">
+                Where Tradition Meets <span class="italic text-accent-gold">Luxury.</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto font-light leading-relaxed opacity-0 animate-fade-in" style="animation-delay: 0.6s;">
+                A boutique residency and pure vegetarian culinary destination just minutes from the sacred Shri Gajanan Maharaj Samadhi Mandir.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 opacity-0 animate-fade-in" style="animation-delay: 0.8s;">
+                <a href="#residency" class="bg-accent-gold text-primary-green px-10 py-4 font-bold rounded-sm hover:bg-white transition-colors duration-300 text-center">EXPLORE RESIDENCY</a>
+                <a href="#restaurant" class="border border-white/40 hover:border-accent-gold text-white px-10 py-4 font-bold rounded-sm backdrop-blur-sm transition-all text-center">VIEW DINING</a>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+            <svg class="w-6 h-6 text-accent-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7-7-7"></path></svg>
+        </div>
+    </section>
+
+    <!-- Core Services -->
+    <section id="restaurant" class="py-24 bg-dark-bg px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-accent-gold uppercase tracking-[0.4em] text-xs font-bold block mb-2">Our Offerings</span>
+                <h2 class="text-4xl md:text-5xl font-serif font-bold">The Essence of Vishveshwar</h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <!-- Fine Dining -->
+                <div class="group">
+                    <div class="relative overflow-hidden rounded-sm mb-8 aspect-[4/3]">
+                        <img src="https://images.unsplash.com/photo-1550966841-3ee3ad0590d1?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Pure Veg Dining">
+                        <div class="absolute inset-0 bg-primary-green/20 group-hover:bg-transparent transition-all"></div>
+                    </div>
+                    <h3 class="text-3xl font-serif text-accent-gold mb-4 italic text-center md:text-left">The Pure Veg Sanctuary</h3>
+                    <p class="text-gray-400 text-lg leading-relaxed mb-6 text-center md:text-left">
+                        Experience the soul of Shegaon through our meticulously curated menu. From traditional Maharashtrian delicacies to global favorites, every dish is prepared with the utmost purity and premium ingredients.
+                    </p>
+                    <ul class="grid grid-cols-2 gap-y-3 mb-8 text-sm text-gray-300 uppercase tracking-widest font-semibold px-4 md:px-0">
+                        <li class="flex items-center"><span class="w-2 h-2 bg-accent-gold mr-3"></span>Pure Sattvic Preparation</li>
+                        <li class="flex items-center"><span class="w-2 h-2 bg-accent-gold mr-3"></span>Traditional Thali</li>
+                        <li class="flex items-center"><span class="w-2 h-2 bg-accent-gold mr-3"></span>Global Fusion</li>
+                        <li class="flex items-center"><span class="w-2 h-2 bg-accent-gold mr-3"></span>Artisanal Desserts</li>
+                    </ul>
                 </div>
-                <div class="about-image">
-                    <img src="https://lh3.googleusercontent.com/gg/AAHar4eQo_-5XKem2dftQR2ZwZQAdNwoiUc9lZPR7n-Cji-8xwYE8uBbjYUN6tB6lYgYGS3MJ5zUdTyQCgu7432oNbwKsMi5jRTe5Af_MnNkXAScwD2QNtqlKaJafRVhtpRQTJzyeYymGicYqk5QOEuo_2XWxyLXv-MK5Hlm2ual_ilECVpUuCX-TZP_REgmKWw6GziUJ8-Q-fkBoktpUIq1i6tS9Wt4CRa5cWOzQNImEZwaey1k1tWTFFQISbNHTAT7o_VqIteFLflSiY-MwtqaSooyq1sPMZgiuhPLhPM_Br-bWsT3u5ZwvlPoIxDl9FwDIJeO-4axedmA0LUBurALhM6e=s1024-rj" alt="Vishveshwar interior">
+
+                <!-- Residency Teaser -->
+                <div class="group">
+                    <div class="relative overflow-hidden rounded-sm mb-8 aspect-[4/3]">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Residency Room">
+                        <div class="absolute inset-0 bg-primary-green/20 group-hover:bg-transparent transition-all"></div>
+                    </div>
+                    <h3 class="text-3xl font-serif text-accent-gold mb-4 italic text-center md:text-left">Elegant Stay</h3>
+                    <p class="text-gray-400 text-lg leading-relaxed mb-6 text-center md:text-left">
+                        Designed for the discerning traveler, our suites offer a sanctuary of calm. Blend historical charm with modern amenities, ensuring your pilgrimage or business visit is defined by comfort and class.
+                    </p>
+                    <div class="flex justify-center md:justify-start">
+                        <a href="#residency" class="text-accent-gold border-b border-accent-gold font-bold uppercase tracking-widest text-sm hover:text-white hover:border-white transition-all">View Room Categories</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="restaurant" class="restaurant-section section-padding">
-        <div class="container">
-            <h2 class="section-title">Our Pure Vegetarian Restaurant</h2>
-            <p class="section-description">Savor a delightful array of pure vegetarian dishes, crafted with the freshest ingredients and traditional recipes. Experience flavors that nourish both body and soul.</p>
-            <div class="menu-highlights-grid">
-                <div class="menu-item-card">
-                    <img src="https://via.placeholder.com/400x250/F2A900/333333?text=Thali+Special" alt="Thali Special">
-                    <h3>Regional Thalis</h3>
-                    <p>Authentic regional platters for a complete culinary journey.</p>
+    <!-- ROOFTOP SECTION (THE HIGHLIGHT) -->
+    <section id="rooftop" class="relative py-32 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover" alt="Rooftop Dining">
+            <div class="absolute inset-0 bg-primary-green/90 mix-blend-multiply"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-bg via-transparent to-dark-bg/80"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-4 text-center">
+            <span class="text-accent-gold uppercase tracking-[0.5em] text-xs font-bold block mb-4">Elevated Dining</span>
+            <h2 class="text-5xl md:text-7xl font-serif font-bold text-white mb-8">The Rooftop <span class="text-accent-gold italic">Skyline</span></h2>
+            <div class="w-24 h-1 bg-accent-gold mx-auto mb-10"></div>
+            
+            <p class="text-xl md:text-2xl text-gray-200 font-light leading-relaxed mb-12 max-w-3xl mx-auto">
+                Breathe in the evening air of Shegaon while enjoying panoramic views of the city. Our rooftop lounge offers a unique blend of open-air freedom and sophisticated service.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-16">
+                <div class="p-6 border border-white/10 backdrop-blur-md rounded-sm text-center">
+                    <div class="text-accent-gold text-4xl mb-4">★</div>
+                    <h4 class="text-white font-serif text-xl mb-2">Panoramic Views</h4>
+                    <p class="text-gray-400 text-sm">Gaze upon the lights of the city and the temple towers.</p>
                 </div>
-                <div class="menu-item-card">
-                    <img src="https://via.placeholder.com/400x250/0B6B3A/F6F1EA?text=Paneer+Delight" alt="Paneer Delight">
-                    <h3>Paneer Delights</h3>
-                    <p>Fresh paneer creations, rich in flavor and tradition.</p>
+                <div class="p-6 border border-white/10 backdrop-blur-md rounded-sm text-center">
+                    <div class="text-accent-gold text-4xl mb-4">☽</div>
+                    <h4 class="text-white font-serif text-xl mb-2">Starry Evenings</h4>
+                    <p class="text-gray-400 text-sm">A serene atmosphere perfect for spiritual reflection.</p>
                 </div>
-                <div class="menu-item-card">
-                    <img src="https://via.placeholder.com/400x250/CFAF5B/333333?text=Desserts" alt="Desserts">
-                    <h3>Sweet Endings</h3>
-                    <p>Indulge in our homemade desserts and refreshing beverages.</p>
+                <div class="p-6 border border-white/10 backdrop-blur-md rounded-sm text-center">
+                    <div class="text-accent-gold text-4xl mb-4">♨</div>
+                    <h4 class="text-white font-serif text-xl mb-2">Live Grills</h4>
+                    <p class="text-gray-400 text-sm">Freshly prepared vegetarian appetizers served straight from the fire.</p>
                 </div>
             </div>
-            <a href="#" class="btn btn-primary menu-button">View Full Menu</a>
+
+            <button class="bg-white text-primary-green hover:bg-accent-gold transition-colors px-12 py-5 font-bold uppercase tracking-widest rounded-sm shadow-2xl">
+                RESERVE YOUR SKY TABLE
+            </button>
         </div>
     </section>
 
-    <section id="residency" class="residency-section section-padding">
-        <div class="container">
-            <h2 class="section-title">Comfortable Residency</h2>
-            <p class="section-description">Unwind in our well-appointed rooms, designed for comfort and tranquility. Perfect for short stays, family vacations, and business travelers.</p>
+    <!-- Detailed Residency Section -->
+    <section id="residency" class="py-24 bg-dark-bg px-4 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-accent-gold uppercase tracking-[0.4em] text-xs font-bold block mb-2">Stay with Us</span>
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-white mb-6">Comfortable Residency</h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto font-light leading-relaxed">
+                    Unwind in our well-appointed rooms, designed for comfort and tranquility. Perfect for short stays, family vacations, and business travelers.
+                </p>
+            </div>
 
-            <div class="room-grid">
-                <div class="room-card">
-                    <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.hotelkapilresidencypune.com%2Frooms%2Fnon-ac-room%2F1&psig=AOvVaw1WFiTBSJ3Uc1ro9Rpj5cmM&ust=1760110444208000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCMjumMK4l5ADFQAAAAAdAAAAABAE" alt="Base Room">
-                    <h3>Base Room</h3>
-                    <p class="price">₹799/-</p>
-                    <ul>
-                        <li><i class="fas fa-check-circle"></i> 1 Comfortable Bedroom</li>
-                        <li><i class="fas fa-check-circle"></i> Attached Bathroom</li>
-                        <li><i class="fas fa-check-circle"></i> 10% off on Breakfast</li>
+            <!-- Room Pricing Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Base Room -->
+                <div class="bg-primary-green/30 border border-accent-gold/20 rounded-sm p-8 flex flex-col items-center group hover:border-accent-gold transition-all duration-500">
+                    <h4 class="text-2xl font-serif text-white mb-2">Base Room</h4>
+                    <div class="text-accent-gold text-4xl font-bold mb-6">₹799<span class="text-sm font-light text-gray-400">/ night</span></div>
+                    <ul class="space-y-4 mb-10 text-gray-300 text-sm w-full">
+                        <li class="flex items-center gap-3">
+                            <span class="text-accent-gold">✔</span> 1 Comfortable Bedroom
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-accent-gold">✔</span> Attached Bathroom
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-accent-gold font-bold">%</span> 10% off on Breakfast
+                        </li>
                     </ul>
-                    <a href="#" class="btn btn-primary">Book Now</a>
+                    <button class="mt-auto w-full py-4 border border-accent-gold text-accent-gold font-bold uppercase tracking-widest text-xs hover:bg-accent-gold hover:text-primary-green transition-all">Book Now</button>
                 </div>
-                <div class="room-card">
-                    <img src="https://maps.app.goo.gl/AHoqgnEUnPH2TQBH8" alt="Premium Room">
-                    <h3>Premium Room</h3>
-                    <p class="price">₹1299/-</p>
-                    <ul>
-                        <li><i class="fas fa-check-circle"></i> 1 Premium Bedroom</li>
-                        <li><i class="fas fa-check-circle"></i> A/C Rooms </li>
-                        <li><i class="fas fa-check-circle"></i> Breakfast Included</li>
+
+                <!-- Premium Room (Featured) -->
+                <div class="bg-primary-green p-8 rounded-sm flex flex-col items-center relative shadow-2xl scale-105 border border-accent-gold">
+                    <div class="absolute -top-4 bg-accent-gold text-primary-green text-[10px] font-bold px-4 py-1 uppercase tracking-widest">Most Popular</div>
+                    <h4 class="text-2xl font-serif text-white mb-2">Premium Room</h4>
+                    <div class="text-accent-gold text-4xl font-bold mb-6">₹1299<span class="text-sm font-light text-gray-200">/ night</span></div>
+                    <ul class="space-y-4 mb-10 text-gray-200 text-sm w-full">
+                        <li class="flex items-center gap-3">
+                            <span class="text-accent-gold font-bold">✔</span> 1 Premium Bedroom
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-accent-gold font-bold">✔</span> A/C Rooms
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-accent-gold font-bold">☕</span> Breakfast Included
+                        </li>
                     </ul>
-                    <a href="#" class="btn btn-primary">Book Now</a>
+                    <button class="mt-auto w-full py-4 bg-accent-gold text-primary-green font-bold uppercase tracking-widest text-xs hover:bg-white transition-all">Book Now</button>
                 </div>
-                <div class="room-card">
-                    <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fm.sterlingsmachotel.com%2Fhotel-rooms-bangalore%2Fdeluxe-room-twin.html&psig=AOvVaw0JP8UC-Jce7-nfAPp0fZ6q&ust=1760110252120000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCOj91eq3l5ADFQAAAAAdAAAAABAE" alt="Deluxe Room">
-                    <h3>Deluxe Room</h3>
-                    <p class="price">₹1699/-</p>
-                    <ul>
-                        <li><i class="fas fa-check-circle"></i> 2 Premium Beds</li>
-                        <li><i class="fas fa-check-circle"></i> Enhanced Comforts</li>
-                        <li><i class="fas fa-check-circle"></i> Breakfast Included</li>
+
+                <!-- Deluxe Room -->
+                <div class="bg-primary-green/30 border border-accent-gold/20 rounded-sm p-8 flex flex-col items-center group hover:border-accent-gold transition-all duration-500">
+                    <h4 class="text-2xl font-serif text-white mb-2">Deluxe Room</h4>
+                    <div class="text-accent-gold text-4xl font-bold mb-6">₹1699<span class="text-sm font-light text-gray-400">/ night</span></div>
+                    <ul class="space-y-4 mb-10 text-gray-300 text-sm w-full">
+                        <li class="flex items-center gap-3">
+                            <span class="text-accent-gold">✔</span> 2 Premium Beds
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-accent-gold">✔</span> Enhanced Comforts
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-accent-gold font-bold">☕</span> Breakfast Included
+                        </li>
                     </ul>
-                    <a href="#" class="btn btn-primary">Book Now</a>
+                    <button class="mt-auto w-full py-4 border border-accent-gold text-accent-gold font-bold uppercase tracking-widest text-xs hover:bg-accent-gold hover:text-primary-green transition-all">Book Now</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer id="contact" class="footer-section section-padding">
-        <div class="container footer-grid">
-            <div class="footer-info">
-                <h3>Contact Us</h3>
-                <p><i class="fas fa-map-marker-alt"></i> Jagdamba Chowk, Khamgaon Rd, Rokadiya Nagar, Shegaon, Maharashtra 444203</p>
-                <p><i class="fas fa-phone-alt"></i> +91 98765 43210</p>
-                <p><i class="fas fa-envelope"></i> <a href="mailto:info@vishveshwar.com">info@vishveshwar.com</a></p>
-                <div class="social-links">
-                    <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+    <!-- Location / Temple Proximity -->
+    <section class="py-20 bg-primary-green">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
+            <div class="flex-1 text-center md:text-left">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-accent-gold mb-6">At the Doorstep of Divinity</h2>
+                <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                    We are strategically located just <span class="text-white font-bold">7 minutes</span> from the Shri Gajanan Maharaj Samadhi Mandir, making us the ideal choice for devotees seeking a peaceful, high-quality stay in Shegaon.
+                </p>
+                <div class="flex items-center md:items-start justify-center md:justify-start gap-4 text-white">
+                    <div class="bg-accent-gold/20 p-3 rounded-full">
+                        <svg class="w-6 h-6 text-accent-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path></svg>
+                    </div>
+                    <div>
+                        <p class="font-bold">Shegaon, Maharashtra</p>
+                        <p class="text-gray-300">Shravandika Complex, Jagdamba Chowk</p>
+                    </div>
                 </div>
             </div>
-            <div class="footer-map">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d361.95368079662217!2d76.68673168305861!3d20.79311546021105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd7450011fba6bf%3A0x93da7561ef1fa6d3!2sShri%20Vishweshwar%20Complex!5e0!3m2!1sen!2sca!4v1764437868054!5m2!1sen!2sca" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <div class="flex-1 w-full h-80 rounded-sm border border-accent-gold/20 overflow-hidden shadow-2xl">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3733.2030432439366!2d76.6853523!3d20.7831093!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd73f8e8f3bd73f%3A0x9f7b2e2f3bc22f3a!2sVishveshwar%20Pure%20Veg%20%26%20Residency!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
             </div>
         </div>
-        <div class="copyright">
-            <p>&copy; 2025 Vishveshwar Pure Veg & Residency. All rights reserved.</p>
+    </section>
+
+    <!-- Gemini AI Spiritual Concierge Floating Button -->
+    <div class="fixed bottom-6 right-6 z-[100] flex flex-col items-end">
+        <!-- Floating Label (Hint) -->
+        <div id="chat-hint" class="bg-white text-primary-green px-4 py-2 rounded-lg shadow-xl mb-4 text-sm font-bold animate-fade-in border-2 border-accent-gold flex items-center gap-2">
+            ✨ Plan your Shegaon visit?
+            <button onclick="document.getElementById('chat-hint').remove()" class="text-gray-400 hover:text-red-500">×</button>
+        </div>
+        
+        <!-- FAB -->
+        <button id="chat-toggle" class="bg-accent-gold hover:bg-soft-gold text-primary-green w-16 h-16 rounded-full shadow-2xl flex items-center justify-center transition-transform hover:scale-110 active:scale-95 group relative border-4 border-primary-green">
+            <span class="text-2xl group-hover:hidden">✨</span>
+            <span class="text-2xl hidden group-hover:block">🙏</span>
+        </button>
+    </div>
+
+    <!-- Chat Modal -->
+    <div id="chat-modal" class="hidden fixed inset-0 md:inset-auto md:bottom-28 md:right-8 md:w-[400px] md:h-[550px] bg-dark-bg z-[101] shadow-2xl rounded-t-2xl md:rounded-2xl border-t border-x md:border border-accent-gold/30 flex flex-col overflow-hidden animate-slide-up">
+        <!-- Header -->
+        <div class="bg-primary-green p-4 border-b border-accent-gold/30 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-accent-gold rounded-full flex items-center justify-center text-xl">✨</div>
+                <div>
+                    <h4 class="text-white font-serif font-bold leading-none">Spiritual Concierge</h4>
+                    <span class="text-[10px] text-accent-gold uppercase tracking-widest">Powered by Vishveshwar AI</span>
+                </div>
+            </div>
+            <button id="close-chat" class="text-accent-gold hover:text-white p-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+
+        <!-- Chat History -->
+        <div id="chat-history" class="flex-1 p-4 space-y-4 overflow-y-auto bg-gradient-to-b from-primary-green/20 to-dark-bg">
+            <div class="bg-primary-green/40 p-3 rounded-lg border border-accent-gold/10 max-w-[85%] text-sm">
+                Jai Gajanan! 🙏 I am your spiritual concierge. I can help you plan your pilgrimage, explain our sattvic menu, or tell you more about our luxury suites. How may I assist you today?
+            </div>
+            
+            <!-- Quick Suggestions -->
+            <div id="suggestions" class="flex flex-wrap gap-2 pt-2">
+                <button onclick="handleSuggestion('Plan a 1-day spiritual itinerary for Shegaon')" class="text-xs bg-dark-bg border border-accent-gold/30 hover:border-accent-gold text-accent-gold px-3 py-1.5 rounded-full transition-colors">✨ Plan 1-Day Visit</button>
+                <button onclick="handleSuggestion('What is the best time for Darshan?')" class="text-xs bg-dark-bg border border-accent-gold/30 hover:border-accent-gold text-accent-gold px-3 py-1.5 rounded-full transition-colors">✨ Darshan Timing</button>
+                <button onclick="handleSuggestion('Tell me about your pure veg thali')" class="text-xs bg-dark-bg border border-accent-gold/30 hover:border-accent-gold text-accent-gold px-3 py-1.5 rounded-full transition-colors">✨ Food Guide</button>
+            </div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="p-4 bg-primary-green/50 border-t border-accent-gold/30">
+            <div class="flex gap-2 bg-dark-bg/80 rounded-lg p-2 border border-accent-gold/20 focus-within:border-accent-gold transition-colors">
+                <input id="chat-input" type="text" placeholder="Ask your concierge..." class="flex-1 bg-transparent border-none focus:ring-0 text-sm text-white px-2">
+                <button id="send-btn" class="bg-accent-gold text-primary-green p-2 rounded-md hover:bg-soft-gold transition-colors">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"></path></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark-bg text-gray-400 border-t border-accent-gold/20 py-16">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div class="md:col-span-1 text-center md:text-left">
+                <img class="h-16 w-auto mb-6 mx-auto md:mx-0" src="uploaded:Logo.png-a7859cd1-51fb-46e7-970e-78310e83393a" alt="Vishveshvar Logo">
+                <p class="font-serif text-2xl text-white font-bold uppercase">Vishveshwar</p>
+                <p class="text-accent-gold text-xs uppercase tracking-[0.2em] mb-4">Pure Veg & Residency</p>
+                <p class="text-sm font-script text-white italic text-xl">Warm Hospitality</p>
+            </div>
+            
+            <div>
+                <h4 class="text-white font-bold mb-6 uppercase tracking-widest text-sm text-center md:text-left">Explore</h4>
+                <ul class="space-y-4 text-sm text-center md:text-left">
+                    <li><a href="#" class="hover:text-accent-gold transition">Our Story</a></li>
+                    <li><a href="#residency" class="hover:text-accent-gold transition">Suites & Rooms</a></li>
+                    <li><a href="#rooftop" class="hover:text-accent-gold transition">Rooftop Lounge</a></li>
+                    <li><a href="#" class="hover:text-accent-gold transition">Banquet Hall</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-bold mb-6 uppercase tracking-widest text-sm text-center md:text-left">Concierge</h4>
+                <ul class="space-y-4 text-sm text-center md:text-left">
+                    <li><a href="#" class="hover:text-accent-gold transition">How to Reach</a></li>
+                    <li><a href="#" class="hover:text-accent-gold transition">Temple Timings</a></li>
+                    <li><a href="#" class="hover:text-accent-gold transition">FAQ</a></li>
+                    <li><a href="#" class="hover:text-accent-gold transition">Bookings</a></li>
+                </ul>
+            </div>
+
+            <div class="text-center md:text-left">
+                <h4 class="text-white font-bold mb-6 uppercase tracking-widest text-sm">Visit Us</h4>
+                <p class="text-sm leading-relaxed mb-4">
+                    Shravandika Complex, Jagdamba Chowk,<br>
+                    Shegaon, Maharashtra 444203
+                </p>
+                <p class="text-white font-bold">+91 98765 43210</p>
+                <p class="text-accent-gold">stay@vishveshvar.com</p>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 mt-16 pt-8 border-t border-white/5 text-center text-xs tracking-widest">
+            &copy; 2025 VISHVESHWAR PURE VEG & RESIDENCY. CRAFTED FOR DEVOTEES.
         </div>
     </footer>
 
     <script>
-        const navToggle = document.getElementById('navToggle');
-        const navLinks = document.querySelector('.nav-links');
+        // --- Gemini API Integration ---
+        const apiKey = ""; // Provided by environment
+        const chatModal = document.getElementById('chat-modal');
+        const chatToggle = document.getElementById('chat-toggle');
+        const closeChat = document.getElementById('close-chat');
+        const chatInput = document.getElementById('chat-input');
+        const sendBtn = document.getElementById('send-btn');
+        const chatHistory = document.getElementById('chat-history');
+        const suggestionsDiv = document.getElementById('suggestions');
 
-        navToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('nav-active');
-            navToggle.classList.toggle('toggle-active');
-        });
+        // Toggle Modal
+        chatToggle.onclick = () => chatModal.classList.toggle('hidden');
+        closeChat.onclick = () => chatModal.classList.add('hidden');
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
+        async function fetchGeminiResponse(userQuery) {
+            const systemPrompt = `You are the Spiritual Concierge AI for 'Vishveshwar Pure Veg & Residency' in Shegaon, Maharashtra. 
+            The hotel is a luxury boutique residency just 500 meters from Shri Gajanan Maharaj Samadhi Mandir.
+            
+            Key knowledge:
+            - Location: Shravandika Complex, Jagdamba Chowk, Shegaon.
+            - Food: 100% Pure Vegetarian, Sattvic preparation, famous for Traditional Thali and Rooftop dining.
+            - Stay: 
+              1. Base Room (₹799): 1 Comfort Bedroom, Attached Bathroom, 10% off on Breakfast.
+              2. Premium Room (₹1299): 1 Premium Bedroom, A/C, Breakfast Included.
+              3. Deluxe Room (₹1699): 2 Premium Beds, Enhanced Comforts, Breakfast Included.
+            - Local: You know everything about the Gajanan Maharaj Temple and Shegaon city.
+            
+            Tone: Extremely polite, humble, warm (using "Jai Gajanan" frequently), and spiritual yet professional. 
+            Encourage visitors to stay at Vishveshwar for the best experience. 
+            Keep responses concise and formatted with simple line breaks. Use ✨ sparingly.`;
 
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+            
+            const payload = {
+                contents: [{ parts: [{ text: userQuery }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] }
+            };
 
-                // Close mobile menu after clicking a link
-                if (navLinks.classList.contains('nav-active')) {
-                    navLinks.classList.remove('nav-active');
-                    navToggle.classList.remove('toggle-active');
+            let delay = 1000;
+            for (let i = 0; i < 5; i++) {
+                try {
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    if (!response.ok) throw new Error('API request failed');
+                    const data = await response.json();
+                    return data.candidates?.[0]?.content?.parts?.[0]?.text || "I am currently meditating. Please try again in a moment. Jai Gajanan!";
+                } catch (error) {
+                    if (i === 4) return "Connection lost. Please contact our reception directly. 🙏";
+                    await new Promise(r => setTimeout(r, delay));
+                    delay *= 2;
                 }
-            });
-        });
+            }
+        }
+
+        async function sendMessage(text) {
+            if (!text.trim()) return;
+
+            suggestionsDiv.classList.add('hidden');
+
+            const userDiv = document.createElement('div');
+            userDiv.className = "ml-auto bg-accent-gold/20 p-3 rounded-lg border border-accent-gold/30 max-w-[85%] text-sm text-right";
+            userDiv.textContent = text;
+            chatHistory.appendChild(userDiv);
+            chatInput.value = '';
+            chatHistory.scrollTop = chatHistory.scrollHeight;
+
+            const loadingDiv = document.createElement('div');
+            loadingDiv.className = "bg-primary-green/40 p-3 rounded-lg border border-accent-gold/10 max-w-[85%] text-sm italic animate-pulse";
+            loadingDiv.textContent = "✨ Concierge is typing...";
+            chatHistory.appendChild(loadingDiv);
+            chatHistory.scrollTop = chatHistory.scrollHeight;
+
+            const aiResponse = await fetchGeminiResponse(text);
+            loadingDiv.remove();
+
+            const aiDiv = document.createElement('div');
+            aiDiv.className = "bg-primary-green/40 p-3 rounded-lg border border-accent-gold/10 max-w-[85%] text-sm whitespace-pre-line";
+            aiDiv.textContent = aiResponse;
+            chatHistory.appendChild(aiDiv);
+            chatHistory.scrollTop = chatHistory.scrollHeight;
+        }
+
+        function handleSuggestion(text) {
+            sendMessage(text);
+        }
+
+        sendBtn.onclick = () => sendMessage(chatInput.value);
+        chatInput.onkeypress = (e) => { if(e.key === 'Enter') sendMessage(chatInput.value); };
+
+        // Toggle Mobile Menu
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
     </script>
 </body>
 </html>
-
-
-
